@@ -2,37 +2,77 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.App button:not(.exitButton) {
+  padding: 13px, 35px;
+  background: #22c39f;
+  border-radius: 30px;
+  font-size: 18px;
+  color: white;
+  border: none;
+}
+
+.modalBackground {
+  opacity: 0;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  transition: opacity 0.4s ease-in-out;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.modalShowing-true {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+.modalInner {
+  background: #1e2939;
+  width: 900px;
+  max-width: calc(100% - 60px);
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  text-align: left;
+}
+
+.modalText {
+  padding: 15px;
+}
+
+.modalText p {
+  line-height: 180%;
+}
+
+.modalText button {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.modalImage img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.exitButton {
+  padding: 50px;
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  border: 0;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (max-width: 500px) {
+  .modalImage {
+    display: none;
   }
 }
